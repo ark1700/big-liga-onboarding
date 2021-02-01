@@ -1,7 +1,8 @@
 import {ieFix} from './utils/ie-fix';
 import {iosVhFix} from './utils/ios-vh-fix';
 
-import {initModals} from './modules/init-modals';
+import {loader} from './modules/loader';
+import {tabletClick} from './modules/tablet-click';
 
 // Utils
 // ---------------------------------
@@ -12,4 +13,5 @@ iosVhFix();
 // Modules
 // ---------------------------------
 
-initModals();
+loader();
+tabletClick();

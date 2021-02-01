@@ -1,0 +1,94 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 35px;
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+  transition: none;
+
+  &--loaded {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transition: opacity 0.5s ease-in-out 0.3s, clip-path 1s ease-in-out 0.3s, -webkit-clip-path 1s ease-in-out 0.3s;
+  }
+}
+
+.main__title {
+  width: 58.2%;
+  margin: 0;
+  font-size: 96px;
+  line-height: 96px;
+  color: $color-neon-blue;
+
+  @include viewport--md {
+    width: 100%;
+  }
+}
+
+.main__block {
+  width: 36.5%;
+
+  @include viewport--md {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: $color-neon-blue;
+    transition: left 0.5s;
+  }
+}
+
+.main--active {
+  .main__block {
+    left: 0;
+  }
+}
+
+.main__block-img {
+  width: 316px;
+  height: 289px;
+  margin-bottom: 35px;
+
+  @include viewport--md {
+    .lightning path {
+      fill: $color-default-white;
+    }
+  }
+
+  .hero {
+    animation-name: jump;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+  }
+}
+
+.main__block-text {
+  font-size: 30px;
+  line-height: 40px;
+
+  @include viewport--md {
+    max-width: 352px;
+    color: $color-default-white;
+  }
+}
+
+.main__bg {
+  position: absolute;
+  top: 43px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+
+  @include viewport--md {
+    display: none;
+  }
+}
